@@ -14,6 +14,8 @@ public class UserDto {
 	private long id;
 
 	private String name;
+	
+	private String userName;
 
 	private String password;
 
@@ -24,6 +26,14 @@ public class UserDto {
 	private Date createdDate;
 
 	private Date updatedDate;
+
+	public String getUserName() {
+		return userName;
+	}
+
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
 
 	public long getId() {
 		return id;
@@ -79,5 +89,12 @@ public class UserDto {
 
 	public void setUpdatedDate(Date updatedDate) {
 		this.updatedDate = updatedDate;
+	}
+
+	@Override
+	public String toString() {
+		return "UserDto [id=" + id + ", name=" + name + ", userName=" + userName + ", password=" + password
+				+ ", college=" + college + ", operatedBy=" + operatedBy + ", createdDate=" + createdDate
+				+ ", updatedDate=" + updatedDate + "]";
 	}
 }

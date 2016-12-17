@@ -19,8 +19,11 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "user_info")
-@NamedQueries({
-	@NamedQuery(name = "getUserById", query = "SELECT u FROM UserBean u WHERE u.id = :id")
+@NamedQueries({ 
+	@NamedQuery(name = "getUserById", query = "SELECT u FROM UserBean u WHERE u.id = :id"),
+	@NamedQuery(name = "getUserByUserNameAndPwd", query = "SELECT u FROM UserBean u WHERE "
+			+ "u.userName = :userName AND u.password = :password"),
+	@NamedQuery(name = "getUserByUserName", query = "SELECT u FROM UserBean u WHERE u.userName = :userName")
 
 })
 public class UserBean {
@@ -32,6 +35,9 @@ public class UserBean {
 
 	@Column(name = "U_NAME")
 	private String name;
+
+	@Column(name = "U_USER_NAME")
+	private String userName;
 
 	@Column(name = "U_PASSWORD")
 	private String password;
@@ -47,6 +53,14 @@ public class UserBean {
 
 	@Column(name = "U_UPDATED_DATE")
 	private Date updatedDate;
+
+	public String getUserName() {
+		return userName;
+	}
+
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
 
 	public long getId() {
 		return id;
